@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Store Redirect</title>
+</head>
+<body>
+    <h1>Redirecting to App Store...</h1>
+    <p>If you are not redirected, <a href="https://yourusername.github.io/app-redirect/fallback.html">click here</a>.</p>
+    <script>
+        // Function to detect device and redirect
+        function redirectToStore() {
+            const userAgent = navigator.userAgent.toLowerCase();
+            const isAndroid = userAgent.includes("android");
+            const isIOS = /iphone|ipad|ipod/.test(userAgent);
+
+            if (isAndroid) {
+                window.location.href = "https://play.google.com/store/apps/details?id=com.brainyway.actnow&pli=1";
+            } else if (isIOS) {
+                window.location.href = "https://apps.apple.com/in/app/act-now-cloud/id6744295297";
+            } else {
+                // Fallback for non-mobile devices
+                window.location.href = "https://yourusername.github.io/app-redirect/fallback.html";
+            }
+        }
+
+        // Run redirect on page load
+        window.onload = redirectToStore;
+    </script>
+</body>
+</html>
